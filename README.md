@@ -1,4 +1,4 @@
-# MindSync 🧠
+# MindSync 
 ### An Attention-Aware Intelligent Learning System Using Behavioural and Visual Cues
 
 MindSync is a real-time cognitive state detection system that monitors a learner's attention, fatigue, and confusion through webcam input and adapts learning content accordingly — simulating the responsiveness of a human tutor.
