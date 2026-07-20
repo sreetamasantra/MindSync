@@ -18,7 +18,7 @@ MindSync is a real-time cognitive state detection system that monitors a learner
 | Head Pose Estimation | ✅ Complete |
 | Cognitive State Classifier | ✅ Complete |
 | Adaptive Learning Engine | ✅ Complete |
-| Flask Backend | 🔲 Upcoming |
+| Flask Backend | ✅ Complete |
 | React Frontend + Dashboard | 🔲 Upcoming |
 
 ---
