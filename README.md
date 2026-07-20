@@ -1,11 +1,11 @@
-# MindSync 🧠
+# MindSync 
 ### An Attention-Aware Intelligent Learning System Using Behavioural and Visual Cues
 
 MindSync is a real-time cognitive state detection system that monitors a learner's attention, fatigue, and confusion through webcam input and adapts learning content accordingly — simulating the responsiveness of a human tutor.
 
 ---
 
-## 📌 Project Status
+## Project Status
 > B.Tech Final Year Project — currently in active development (2nd Year)
 
 | Module | Status |
@@ -23,20 +23,20 @@ MindSync is a real-time cognitive state detection system that monitors a learner
 
 ---
 
-## 🧠 What It Does
+## What It Does
 
 MindSync continuously monitors the learner through their webcam and classifies their cognitive state in real time into one of four categories:
 
 | State | Detection Method | Adaptive Response |
 |-------|-----------------|-------------------|
-| 😊 **Focused** | Normal EAR + straight head pose | Increase content difficulty |
-| 😵 **Distracted** | Head turned away (yaw/pitch > threshold) | Trigger attention alert |
-| 😴 **Fatigued** | EAR below threshold for 30+ frames | Suggest a break |
-| 😕 **Confused** | Frequent blinks + mild head movement | Simplify content |
+| **Focused** | Normal EAR + straight head pose | Increase content difficulty |
+| **Distracted** | Head turned away (yaw/pitch > threshold) | Trigger attention alert |
+| **Fatigued** | EAR below threshold for 30+ frames | Suggest a break |
+| **Confused** | Frequent blinks + mild head movement | Simplify content |
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 Webcam Input
@@ -60,7 +60,7 @@ Face Mesh (MediaPipe)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 MindSync/
@@ -95,7 +95,7 @@ MindSync/
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -110,7 +110,7 @@ MindSync/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.13
@@ -151,7 +151,7 @@ python modules/cognitive_detection/state_classifier.py # Full classifier
 
 ---
 
-## 📐 Key Technical Concepts
+## Key Technical Concepts
 
 ### Eye Aspect Ratio (EAR)
 ```
@@ -176,7 +176,7 @@ Calibration offsets are applied to account for webcam angle and positioning.
 
 ---
 
-## ⚠️ Known Limitations
+## Known Limitations
 
 - Accuracy depends on lighting and webcam quality
 - Calibration offsets are currently hardcoded per device
@@ -185,7 +185,7 @@ Calibration offsets are applied to account for webcam angle and positioning.
 
 ---
 
-## 🔮 Future Scope
+## Future Scope
 
 - [ ] Flask REST API backend
 - [ ] React frontend with learning interface
@@ -197,12 +197,12 @@ Calibration offsets are applied to account for webcam angle and positioning.
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Sreetama Santra**  
 B.Tech Student | Computer Science & Engineering 
 
 ---
 
-## 📄 License
+## License
 This project is for academic purposes as part of a B.Tech Final Year Project.
