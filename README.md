@@ -103,7 +103,7 @@ MindSync/
 | Computer Vision | OpenCV 4.x |
 | Face Landmark Detection | MediaPipe 0.10.x (Tasks API) |
 | ML / Classification | Rule-based (Scikit-learn upcoming) |
-| Backend | Flask (upcoming) |
+| Backend | Flask |
 | Frontend | React (upcoming) |
 | Version Control | Git / GitHub |
 | IDE | VS Code |
