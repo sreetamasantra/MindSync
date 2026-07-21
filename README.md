@@ -6,7 +6,7 @@ MindSync is a real-time cognitive state detection system that monitors a learner
 ---
 
 ## Project Status
-> B.Tech Final Year Project — currently in active development (2nd Year)
+> B.Tech Final Year Project — currently in active development (3rd Year)
 
 | Module | Status |
 |--------|--------|
