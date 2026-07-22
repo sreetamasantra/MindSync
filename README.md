@@ -6,7 +6,7 @@ MindSync is a real-time cognitive state detection system that monitors a learner
 ---
 
 ## Project Status
-> B.Tech Final Year Project — currently in active development (2nd Year)
+> B.Tech Final Year Project — currently in active development (3rd Year)
 
 | Module | Status |
 |--------|--------|
@@ -18,8 +18,8 @@ MindSync is a real-time cognitive state detection system that monitors a learner
 | Head Pose Estimation | ✅ Complete |
 | Cognitive State Classifier | ✅ Complete |
 | Adaptive Learning Engine | ✅ Complete |
-| Flask Backend | 🔲 Upcoming |
-| React Frontend + Dashboard | 🔲 Upcoming |
+| Flask Backend | ✅ Complete |
+| React Frontend + Dashboard | ✅ Complete |
 
 ---
 
@@ -103,8 +103,8 @@ MindSync/
 | Computer Vision | OpenCV 4.x |
 | Face Landmark Detection | MediaPipe 0.10.x (Tasks API) |
 | ML / Classification | Rule-based (Scikit-learn upcoming) |
-| Backend | Flask (upcoming) |
-| Frontend | React (upcoming) |
+| Backend | Flask |
+| Frontend | React |
 | Version Control | Git / GitHub |
 | IDE | VS Code |
 
