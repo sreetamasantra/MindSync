@@ -14,7 +14,9 @@ CORS(app)  # Allow React frontend to call this API
 @app.route('/api/state', methods=['GET'])
 def get_state():
     """Returns current cognitive state and metrics."""
-    return jsonify(session.get_current())
+    data = session.get_current()
+    data["confidence"] = getattr(session, '_confidence', None)
+    return jsonify(data)
 
 @app.route('/api/session/log', methods=['GET'])
 def get_log():

@@ -8,10 +8,11 @@ import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from modules.cognitive_detection.state_classifier import (
-    get_eye_points, calculate_ear, get_head_pose, classify_state,
+    get_eye_points, calculate_ear, get_head_pose,
     LEFT_EYE, RIGHT_EYE, PITCH_OFFSET, YAW_OFFSET,
     EAR_THRESHOLD, FATIGUE_FRAMES, BLINK_FRAMES
 )
+from modules.cognitive_detection.ml_classifier import MLClassifier
 from modules.adaptive_engine.engine import AdaptiveEngine
 from modules.analytics.session_state import session
 
@@ -29,8 +30,9 @@ def detection_loop():
         running_mode=VisionRunningMode.IMAGE,
         num_faces=1)
 
-    cap    = cv2.VideoCapture(0)
-    engine = AdaptiveEngine()
+    cap        = cv2.VideoCapture(0)
+    engine     = AdaptiveEngine()
+    classifier = MLClassifier()
 
     closed_frames = 0
     blink_times   = []
@@ -52,6 +54,7 @@ def detection_loop():
             if results.face_landmarks:
                 lm = results.face_landmarks[0]
 
+                # Feature extraction
                 left_pts  = get_eye_points(lm, LEFT_EYE,  fw, fh)
                 right_pts = get_eye_points(lm, RIGHT_EYE, fw, fh)
                 avg_ear   = (calculate_ear(left_pts) +
@@ -71,19 +74,23 @@ def detection_loop():
                 now          = time.time()
                 blink_times  = [t for t in blink_times
                                 if now - t <= 5]
-                recent_blinks = len(blink_times)
+                blink_rate   = len(blink_times)
 
                 pitch, yaw = get_head_pose(lm, fw, fh)
                 pitch_adj  = pitch - PITCH_OFFSET
                 yaw_adj    = yaw   - YAW_OFFSET
 
-                state = classify_state(
+                # ML prediction instead of rule-based
+                state, confidence = classifier.predict(
                     avg_ear, pitch_adj, yaw_adj,
-                    closed_frames, recent_blinks)
+                    blink_rate, closed_frames)
 
                 session.update_detection(
                     state, avg_ear, pitch_adj,
-                    yaw_adj, blink_count, recent_blinks)
+                    yaw_adj, blink_count, blink_rate)
+
+                # Store confidence in session too
+                session._confidence = confidence
 
                 recommendation = engine.update(state)
                 session.update_recommendation(recommendation)
