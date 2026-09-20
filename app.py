@@ -5,13 +5,14 @@ import threading
 from modules.analytics.session_state import session
 from modules.analytics.detection_thread import (
     start_detection_thread, stop_detection_thread)
+from modules.analytics.database import get_all_sessions, get_session_events, get_recent_events
 
 app = Flask(__name__)
 CORS(app)  # Allow React frontend to call this API
 
 # Routes 
 
-@app.route('/api/state', methods=['GET'])
+@app.route('/api/state', methods=['GET']) 
 def get_state():
     """Returns current cognitive state and metrics."""
     data = session.get_current()
@@ -32,6 +33,28 @@ def reset_session():
     """Resets the session."""
     session.reset()
     return jsonify({"status": "reset successful"})
+
+@app.route('/api/sessions', methods=['GET'])
+def get_sessions():
+    """Returns all past sessions."""
+    sessions = get_all_sessions()
+    return jsonify({"sessions": sessions})
+
+@app.route('/api/sessions/<int:session_id>/events', methods=['GET'])
+def get_events(session_id):
+    """Returns all events for a specific session."""
+    events = get_session_events(session_id)
+    return jsonify({
+        "session_id": session_id,
+        "count": len(events),
+        "events": events
+    })
+
+@app.route('/api/events/recent', methods=['GET'])
+def recent_events():
+    """Returns 50 most recent events across all sessions."""
+    events = get_recent_events(50)
+    return jsonify({"events": events})
 
 @app.route('/api/health', methods=['GET'])
 def health():
